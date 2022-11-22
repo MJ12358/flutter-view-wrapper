@@ -35,14 +35,16 @@ class FlutterViewWrapper extends StatelessWidget {
               notificationPredicate:
                   onRefresh != null ? (_) => true : (_) => false,
               child: SingleChildScrollView(
-                padding: padding,
                 physics: physics,
                 child: ConstrainedBox(
                   constraints: constraints.copyWith(
                     minHeight: constraints.maxHeight,
                     maxHeight: double.infinity,
                   ),
-                  child: child,
+                  child: Container(
+                    padding: padding,
+                    child: child,
+                  ),
                 ),
               ),
             );
