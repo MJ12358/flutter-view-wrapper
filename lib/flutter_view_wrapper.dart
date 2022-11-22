@@ -39,7 +39,7 @@ class FlutterViewWrapper extends StatelessWidget {
                 physics: physics,
                 child: ConstrainedBox(
                   constraints: constraints.copyWith(
-                    minHeight: constraints.maxHeight - kToolbarHeight,
+                    minHeight: constraints.maxHeight,
                     maxHeight: double.infinity,
                   ),
                   child: child,
