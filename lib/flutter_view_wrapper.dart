@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_extensions/flutter_extensions.dart';
 
 class FlutterViewWrapper extends StatelessWidget {
   ///
@@ -55,9 +54,9 @@ class FlutterViewWrapper extends StatelessWidget {
         if (onWillPop != null) {
           return onWillPop!();
         }
-        context.closeDrawer();
-        context.closeMaterialBanner();
-        context.closeSnackBar();
+        Scaffold.of(context).closeDrawer();
+        ScaffoldMessenger.of(context).clearMaterialBanners();
+        ScaffoldMessenger.of(context).clearSnackBars();
         return true;
       },
     );

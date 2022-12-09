@@ -13,8 +13,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_extensions:
-    git: https://github.com/mj12358/flutter-extensions
 
 dev_dependencies:
   flutter_test:
