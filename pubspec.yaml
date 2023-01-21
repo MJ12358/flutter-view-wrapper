@@ -1,13 +1,10 @@
 name: flutter_view_wrapper
-description: A new Flutter package project.
-version: 0.0.1
-homepage:
-
-# Prevent accidental publishing to pub.dev.
-publish_to: 'none'
+description: A simple Flutter wrapper with a SafeArea, LayoutBuilder and SingleChildScrollView.
+version: 1.0.0
+repository: https://github.com/mj12358/flutter-view-wrapper
 
 environment:
-  sdk: '>=2.18.2 <3.0.0'
+  sdk: ">=2.18.2 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
