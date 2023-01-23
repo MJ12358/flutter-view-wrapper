@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class FlutterViewWrapper extends StatelessWidget {
@@ -17,11 +18,13 @@ class FlutterViewWrapper extends StatelessWidget {
 
   final EdgeInsets? padding;
   final ScrollPhysics? physics;
-  final Future<void> Function()? onRefresh;
-  final Future<bool> Function()? onWillPop;
+  final AsyncCallback? onRefresh;
+  final AsyncValueGetter<bool>? onWillPop;
   final Widget child;
 
   static Future<void> _defaultOnRefresh() async {}
+
+  bool get _canRefresh => onRefresh != null;
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +34,7 @@ class FlutterViewWrapper extends StatelessWidget {
           builder: (BuildContext context, BoxConstraints constraints) {
             return RefreshIndicator(
               onRefresh: onRefresh ?? _defaultOnRefresh,
-              notificationPredicate:
-                  onRefresh != null ? (_) => true : (_) => false,
+              notificationPredicate: (_) => _canRefresh,
               child: SingleChildScrollView(
                 physics: physics,
                 child: ConstrainedBox(
@@ -42,6 +44,7 @@ class FlutterViewWrapper extends StatelessWidget {
                   ),
                   child: Container(
                     padding: padding,
+                    width: double.infinity,
                     child: child,
                   ),
                 ),

@@ -5,8 +5,7 @@
 Add this to your `pubspec.yaml` under `dependences`
 
 ```yaml
-flutter_view_wrapper:
-  git: https://github.com/MJ12358/flutter-view-wrapper
+flutter_view_wrapper: 1.0.1
 ```
 
 ## Usage
